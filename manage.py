@@ -1,12 +1,16 @@
 import os
 import unittest
+
 # class for handling a set of commands
+
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 from app import db, create_app
 
+APP_SETTINGS = "development"
+
 # initialize the app with all its configurations
-app = create_app(config_name=os.getenv('APP_SETTINGS'))
+app = create_app(config_name=APP_SETTINGS)
 migrate = Migrate(app, db)
 # create an instance of class that will handle our commands
 manager = Manager(app)
